@@ -1,0 +1,47 @@
+package com.bizleap.intern.assignment;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Assignment5 implements BizLeap{
+	
+	public void divisible3(){
+		List list=new ArrayList();
+		//Scanner sc=new Scanner(System.in);
+		int number =27;
+		//System.out.println("Enter a number");
+	   // number=sc.nextInt();
+			if(number % 3==0)
+				list.add("biz");
+	   System.out.println(list);
+	}
+	public void divisible5(){
+   int number=25;
+   List list=new ArrayList();
+   //number=sc.nextInt();
+	if(number % 5 ==0)
+		list.add("leap");
+	System.out.println(list+ " ");
+	
+}
+   public void divisible3and5(){
+	   int number=15;
+	   List list=new ArrayList();
+	  // number=sc.nextInt();
+	   if(number % 3 ==0 && number % 5==0)
+		   list.add("bizleap");
+   System.out.println(list+" ");
+}
+public static void main(String[] args) {
+		Assignment5 listinterface=new Assignment5();
+		listinterface.divisible3();
+		listinterface.divisible5();
+		listinterface.divisible3and5();
+		
+
+
+	}
+
+}

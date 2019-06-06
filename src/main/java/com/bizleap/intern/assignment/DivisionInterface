@@ -1,0 +1,8 @@
+package com.bizleap.intern.assignment;
+
+import java.util.List;
+
+public interface testInterface {
+	public List<String> generateList(int number);
+
+}
