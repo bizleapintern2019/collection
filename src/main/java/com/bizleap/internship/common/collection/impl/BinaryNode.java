@@ -13,6 +13,30 @@ public class BinaryNode {
 		left = null;
 		right = null;
 	}
+	
+	public boolean hasKey(int key) { 
+		return this.key == key;
+	}
+	
+	public boolean hasSmaller(int key) {
+		return this.key < key;
+	}
+	
+	public boolean hasGreater(int key){
+		return this.key > key;
+	}
+	
+	public boolean hasLeftChild(){
+		return getLeft() != null;
+	}
+	
+	public boolean hasRightChild(){
+		return getRight() != null;
+	}
+	
+	public boolean hasNoChild(){
+	 return	!(hasLeftChild() && hasRightChild());
+	}
 	public int getKey()
 	{
 		return key;

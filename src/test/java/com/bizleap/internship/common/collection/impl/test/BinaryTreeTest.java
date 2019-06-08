@@ -2,14 +2,14 @@ package com.bizleap.internship.common.collection.impl.test;
 
 import com.bizleap.internship.common.collection.impl.BinarySearchTree;
 import com.bizleap.internship.common.collection.impl.BinaryTree;
-import com.bizleap.internship.common.collection.impl.Orders;
+import com.bizleap.internship.common.collection.impl.TreeTraversalTest;
 import com.bizleap.internship.common.collections.BTree;
 public class BinaryTreeTest {
 	
 	public static void main (String [] Args){
 		
 		BTree bTree = new BinaryTree();                
-		Orders orders = new Orders();
+		TreeTraversalTest orders = new TreeTraversalTest();
 		BTree bSTree= new BinarySearchTree();
 		bSTree.insert(12,"A");
 		bSTree.insert(4,"B");

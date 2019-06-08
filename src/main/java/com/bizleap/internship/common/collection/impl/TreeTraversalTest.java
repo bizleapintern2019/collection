@@ -2,10 +2,9 @@ package com.bizleap.internship.common.collection.impl;
 
 import com.bizleap.internship.common.collection.impl.test.BinaryTreeTest;
 
-public class Orders extends BinaryTreeTest{
+public class TreeTraversalTest extends BinaryTreeTest{
 	
-	public void preOrder(BinaryNode node)
-     {
+	public void preOrder(BinaryNode node){
      if (node != null)
        {
        System.out.println(node);
@@ -14,8 +13,7 @@ public class Orders extends BinaryTreeTest{
        }
      }
 
-   public void inOrder(BinaryNode node)
-     {
+   public void inOrder(BinaryNode node){
      if (node != null)
        {
        inOrder(node.getLeft());
@@ -24,8 +22,7 @@ public class Orders extends BinaryTreeTest{
        }
      }
 
-public void postOrder(BinaryNode node)
-     {
+public void postOrder(BinaryNode node){
      if (node != null)
        {
        postOrder(node.getLeft());

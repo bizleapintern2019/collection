@@ -48,10 +48,10 @@ public class BinarySearchTree implements BTree{
 			return new BinaryNode(key,value);//if the space is found insert the node;
 		}
 		
-		if(current.getKey()>key){
+		if(current.hasGreater(key)){
 			//if key is less than current key, go to left and insert the node
 			current.setLeft(insertRecursive(current.getLeft(),key,value));
-		}else if(current.getKey()<key){
+		}else if(current.hasSmaller(key)){
 			//if key is grater than current key, go to right and insert the node
 			current.setRight(insertRecursive(current.getRight(),key,value));
 		}
@@ -71,12 +71,12 @@ public class BinarySearchTree implements BTree{
 			//if current node is null return 0
 			return 0;
 		} 
-		if (current.getKey() == key){
+		if (current.hasKey(key)){
 			//if key is equal to the current key return the current node's value
 			return current.getData();
 		} 
 		//if key is less than current key go to left subtree and find the key or go to right subtree and find the key
-		return key < current.getKey() ? searchRecursive(current.getLeft(), key) : searchRecursive(current.getRight(), key);
+		return current.hasGreater(key) ? searchRecursive(current.getLeft(), key) : searchRecursive(current.getRight(), key);
 	}
 
 	public void delete(int key){
@@ -89,15 +89,15 @@ public class BinarySearchTree implements BTree{
 			return null;
 		}
 		//node to be deleted is found
-		if(current.getKey()==key){
+		if(current.hasKey(key)){
 
-				if(current.getLeft()==null && current.getRight() ==null)// if no children just delete the node
+				if(current.hasNoChild())// if no children just delete the node
 					return null;
 	
-				if(current.getLeft()==null)// if no left child replace it with right subtree
+				if(current.hasRightChild())// if it has right child replace it with right subtree
 					return current.getRight();
 				
-				if(current.getRight()==null)// if no right child replace it with left subtree
+				if(current.hasLeftChild())// if it has left child replace it with left subtree
 					return current.getLeft();
 			
 				// target node has two children so need to find the successor node
@@ -110,7 +110,7 @@ public class BinarySearchTree implements BTree{
 				return leftSuccessor;
 		}
 
-	 if(current.getKey()<key){	// larger than current node so delete from the right
+	 if(current.hasSmaller(key)){	// larger than current node so delete from the right
 		current.setRight(deleteRecursive(current.getRight(),key));
 	}else{	// smaller than current node so delete from the left
 		current.setLeft(deleteRecursive(current.getLeft(),key));
@@ -121,13 +121,9 @@ public class BinarySearchTree implements BTree{
 
 public BinaryNode getSuccessor(BinaryNode node){
 
-	BinaryNode successor;
-	if(node.getRight()==null){
-		successor= node;
-	}else{
-		successor = getSuccessor(node.getRight());
-	}
-	return successor;
+	if(!node.hasRightChild())
+		return node;
+	return getSuccessor(node.getRight());
 }
 
 @Override
